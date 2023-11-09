@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+
+
+
+        <div id="signin-box">
+
+            <div class="text-centre mb-3">
+                <a href="./signin.html">
+                    <button id="signin" class="button-one"> <i class="fa-solid fa-user"></i> &nbsp; Sign In</button>
+                </a>
+                <a href="./signup.html">
+                    <button id="signup" class="button-two"> <i class="fa-solid fa-user-plus"></i> &nbsp; Sign
+                        Up</button>
+                </a>
+            </div>
+
+            <form id="signin-form">
+
+                <input id="email" type="email" placeholder="Email" required> <br>
+                <input id="password" type="password" placeholder="Password" required> <br>
+
+                <p id="error" class="para mb-1"></p>
+
+                <a href="#" id="forgot-password" class="short-link text-start mb-3">Forgot Password?</a> <br>
+
+                <label id="remember-me" class="para">
+                    <input class="mt-3" type="checkbox" required> Remember Me
+                </label>
+
+                <br>
+
+                <div class="mt-2">
+                    <button id="submit" type="submit"> <i class="fa-solid fa-right-to-bracket"></i> &nbsp; Sign
+                        In</button>
+                </div>
+
+                <div id="signup-short" class="mt-4">
+                    <p class="para">Dont have an account? <a href="./signup.html" class="short-link">Sign Up</a></p>
+                </div>
+
+            </form>
+
+        </div>
+
+
+
+
+    </div>
+
+
+    <script type="module" src="signin.js"></script>
+    <script src="https://kit.fontawesome.com/7d6781b227.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

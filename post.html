@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Post</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+
+        <div id="create-post-box">
+
+            <div class="text-centre mb-1">
+                <h2 class="heading">Create Post</h2>
+            </div>
+
+            <form id="post-form">
+
+                <!-- <input id="post-title" type="text" placeholder="Post Title" required> <br> -->
+                <textarea id="post-description" rows="5" placeholder="What's on your mind?" required></textarea>
+                <!-- <input id="post-description" type="text" placeholder="Description" required> <br> -->
+
+                <br>
+
+                <div class="mt-2">
+                    <button id="publish-post" type="submit"> <i class="fa-solid fa-right-to-bracket"></i> &nbsp; Publish
+                        Post</button>
+                </div>
+
+            </form>
+
+        </div>
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+    <script type="module" src="post.js"></script>
+</body>
+
+</html>
