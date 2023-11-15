@@ -19,6 +19,12 @@ body {
 
 .d-flex {
     display: flex;
+    align-items: center;
+}
+
+.text-none{
+    color: #000;
+    text-decoration: none;
 }
 
 .text-centre {
@@ -35,6 +41,10 @@ body {
 
 .justify-between {
     justify-content: space-between;
+}
+
+.gap-3 {
+    gap: 30px;
 }
 
 .padd-10 {
@@ -108,6 +118,23 @@ body {
     /* background-color: #791cff; */
 }
 
+.edit-btn,
+.dlt-btn {
+    cursor: pointer;
+    padding: 0;
+    border: none;
+    background: transparent;
+}
+
+.edit-btn {
+    margin-right: 20px;
+    color: #0048ff;
+}
+
+.dlt-btn {
+    color: #ff3939;
+}
+
 .para {
     color: #555555;
     font-size: 0.9rem;
@@ -122,6 +149,7 @@ body {
 #error {
     color: red;
 }
+
 
 
 

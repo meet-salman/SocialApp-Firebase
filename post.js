@@ -15,6 +15,7 @@ const time = `${hours12}:${minutes} ${ampm}`;
 
 
 
+
 postForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -26,6 +27,7 @@ postForm.addEventListener('submit', async (e) => {
         });
 
         console.log("Document written with ID: ", docRef.id);
+
         postDes.value = ''
         window.location = 'index.html'
 
@@ -33,6 +35,11 @@ postForm.addEventListener('submit', async (e) => {
         console.error("Error adding document: ", e);
     }
 
-})
+});
 
 
+
+
+
+
+// export { time }

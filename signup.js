@@ -1,5 +1,6 @@
-import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
-import { auth } from "./config.js";
+import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
+import { collection, addDoc } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js";
+import { auth, db } from "./config.js";
 
 
 const signupForm = document.querySelector('#signup-form');
@@ -10,6 +11,11 @@ const confirmPassword = document.querySelector('#confirm-password');
 const error = document.querySelector('#error');
 
 
+
+
+
+// REGISTER USER FUNCTION
+
 signupForm.addEventListener('submit', (e) => {
     e.preventDefault()
 
@@ -19,7 +25,23 @@ signupForm.addEventListener('submit', (e) => {
             .then((userCredential) => {
                 const user = userCredential.user;
                 console.log(user);
-                window.location = 'index.html'
+
+
+                // ADD USER DETAILS TO DB
+
+                addDoc(collection(db, "users"), {
+                    name: name.value,
+                    email: email.value,
+                    uid: user.uid
+                })
+                    .then((res) => {
+                        console.log("User added to db");
+                        window.location = 'index.html'
+                    })
+                    .catch((rej) => {
+                        console.log(rej);
+                    })
+
             })
             .catch((err) => {
                 const errorCode = err.code;
