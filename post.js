@@ -3,7 +3,7 @@ const postDes = document.querySelector('#post-description');
 
 
 import { auth, db } from "./config.js";
-import { collection, addDoc } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js";
+import { collection, addDoc, Timestamp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js";
 
 
 const rightNow = new Date();
@@ -23,6 +23,7 @@ postForm.addEventListener('submit', async (e) => {
         const docRef = await addDoc(collection(db, "posts"), {
             content: postDes.value,
             uid: auth.currentUser.uid,
+            date: rightNow,
             time: time
         });
 

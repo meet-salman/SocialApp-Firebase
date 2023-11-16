@@ -4,6 +4,7 @@ import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/
 import { collection, query, where, orderBy, getDocs, doc, deleteDoc } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js";
 
 
+const profilePic = document.querySelector('#profile-pic');
 const userName = document.querySelector('#user-name');
 const signOutBtn = document.querySelector('#sign-out');
 const allPostsBox = document.querySelector('#all-posts-box');
@@ -31,7 +32,8 @@ onAuthStateChanged(auth, async (user) => {
             // currentUser.push(doc.data())
             currentUser = doc.data();
             console.log("LoggedIn User =>", currentUser);
-            userName.innerHTML = `<i class="fa-regular fa-circle-user"></i> ${currentUser.name}`
+            profilePic.src = currentUser.profilePic;
+            userName.innerHTML = currentUser.name
         });
 
 
@@ -70,7 +72,7 @@ function renderingData() {
         allPostsBox.innerHTML += `
         <div id="post-box">
             <div id="post-details" class="d-flex justify-between padd-lr">
-                <p>Post by User: ${currentUser.name} </p>
+                <p>Post by User: ${item.uid} </p>
                 <p> ${item.time} </p>
             </div>
 
@@ -106,7 +108,7 @@ function renderingData() {
 
 async function getAllPostDataFromFirebase() {
 
-    const q = query(collection(db, "posts"), orderBy("time", "desc"));
+    const q = query(collection(db, "posts"), orderBy('date', 'desc', 'time', 'desc'));
 
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
@@ -136,9 +138,6 @@ getAllPostDataFromFirebase();
 
 
 export { onAuthStateChanged, signOutBtn }
-
-
-
 
 
 
